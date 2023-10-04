@@ -65,7 +65,6 @@ def goto():
             collection.insert_one(registro)
             return render_template('login.html')
         
-
 @app.route('/menu', methods=["POST", "GET"])
 def menu():
     global email, senha
@@ -84,7 +83,6 @@ def menu():
         else:
             return '<h1>Seu login não foi encontrado.</h1>'
 
-        
 @app.route('/inserir', methods=["POST", "GET"])
 def inserir():
     return render_template('inserir.html')
@@ -103,7 +101,6 @@ def consultar():
 
     return '<h1>E-mail não encontrado.</h1>'
 
-
 @app.route('/resultado', methods=["POST", "GET"])
 def resultado():
     global email, senha, notat1, notat2, notaListas, notaParcial  # Indique que você está usando as variáveis globais 'email' e 'senha'
@@ -120,7 +117,7 @@ def resultado():
 
         mediaListas = (somaLista / len(notaListas))
 
-
+        #Checa se os valores fornecidos para as notas estão entre os intervalos de 0 a 10
         if (0 <= notat1 <= 10) and (0 <= notat2 <= 10) and all(0 <= n <= 10 for n in notaListas):
             notaParcial = round(((notat1 + notat2) / 2 * 0.8) + (mediaListas * 0.2), 2)
             collection.update_one(
