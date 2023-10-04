@@ -132,7 +132,3 @@ def resultado():
         
         else:
             return '<h1>Por favor, insira valores válidos (0 a 10)</h1>'
-    
-if __name__ == '__main__':
-    app.run()
-
